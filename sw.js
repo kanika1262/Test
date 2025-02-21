@@ -3,6 +3,8 @@ self.addEventListener("push", (event) => {
 
     try {
         const data = event.data.json();  
+        console.log("Received Push Notification:", data);
+
         self.registration.showNotification(data.title, {
             body: data.body,
             icon: "/icon.png",
@@ -16,8 +18,8 @@ self.addEventListener("push", (event) => {
     }
 });
 
-
 self.addEventListener("notificationclick", (event) => {
     event.notification.close();
     event.waitUntil(clients.openWindow("https://drapcode.com"));
 });
+
