@@ -19,8 +19,8 @@ admin.initializeApp({
 });
 
 const apiKeys = {
-    publicKey: "BI-cuxz1-6lW-P_iIRBSfYQ1DUwCvIxq2FBmwGJ02NQFL_olo8DO-OfhUgHBAf2VVuxqdp1EFBhFbT2ke132x3E",
-    privateKey: "Qhcu-Lkgpu8wonuSpw3rlpCFvx3F3JiR-9Iygx9pcV0",
+    publicKey: process.env.PUBLIC_KEY,
+    privateKey: process.env.PRIVATE_KEY,
 };
 
 webpush.setVapidDetails(
