@@ -1,5 +1,6 @@
 importScripts("https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/10.0.0/firebase-messaging.js");
+require("dotenv").config();
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,

@@ -51,7 +51,7 @@ const main = async () => {
         const registration = await registerSW();
         const subscription = await registration.pushManager.subscribe({
             userVisibleOnly: true,
-            applicationServerKey: urlBase64ToUint8Array(process.env.PUBLIC_KEY,),
+            applicationServerKey: urlBase64ToUint8Array("BI-cuxz1-6lW-P_iIRBSfYQ1DUwCvIxq2FBmwGJ02NQFL_olo8DO-OfhUgHBAf2VVuxqdp1EFBhFbT2ke132x3E"),
         });
 
         await saveSubscription(subscription);

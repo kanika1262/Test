@@ -7,20 +7,15 @@ require("dotenv").config();
 const app = express();
 const port = 3000;
 
-const serviceAccountPath = process.env.FIREBASE_ADMIN_SDK_PATH;
-if (!serviceAccountPath) {
-    throw new Error("Missing FIREBASE_ADMIN_SDK_PATH in .env");
-}
-
-const serviceAccount = require(path.resolve(serviceAccountPath));
+const serviceAccount = require("./firebase-admin-sdk.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
 });
 
 const apiKeys = {
-    publicKey: process.env.PUBLIC_KEY,
-    privateKey: process.env.PRIVATE_KEY,
+    publicKey: "BI-cuxz1-6lW-P_iIRBSfYQ1DUwCvIxq2FBmwGJ02NQFL_olo8DO-OfhUgHBAf2VVuxqdp1EFBhFbT2ke132x3E",
+    privateKey: "Qhcu-Lkgpu8wonuSpw3rlpCFvx3F3JiR-9Iygx9pcV0",
 };
 
 webpush.setVapidDetails(
@@ -115,6 +110,7 @@ const scheduleNotification = (cronTime, message) => {
 
 scheduleNotification("30 11 * * *", "It's 11:30 AM!");
 scheduleNotification("30 16 * * *", "It's 4:30 PM!");
+scheduleNotification("29 17 * * *", "It's 5:29 PM!");
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}!`);
